@@ -8,10 +8,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
-import ru.myproject.first_project.domain.User;
 import ru.myproject.first_project.domain.UserCredentials;
 import ru.myproject.first_project.service.UserServiceInterface;
-import ru.myproject.first_project.utils.UserUtils;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -20,7 +18,6 @@ import javax.validation.Valid;
 public class LoginController extends AbstractController {
     UserServiceInterface userService;
     final Validator loginUserValidator;
-
     @InitBinder
     public void initBinder(WebDataBinder binder) {
         binder.addValidators(loginUserValidator);
@@ -30,7 +27,11 @@ public class LoginController extends AbstractController {
         this.userService = userService;
         this.loginUserValidator = loginUserValidator;
     }
-
+    @GetMapping("/check/{id}")
+    @ResponseBody
+    public Long getCheckPage(@PathVariable("id") Long id) {
+        return id;
+    }
     @GetMapping("/enter")
     public String getEnterPage(Model model){
         model.addAttribute("loginForm", new UserCredentials());
@@ -38,14 +39,9 @@ public class LoginController extends AbstractController {
     }
 
 
-    @PostMapping("/login")
+    @PostMapping("/enter")
     public String login(@ModelAttribute("loginForm") @Valid UserCredentials loginForm, BindingResult result,
                         HttpSession session) {
-        if(result.hasErrors()) {
-            return "enterPage";
-        }
-        User u = userService.findByLoginOrEmailAndPassword(loginForm.getLoginOrEmail(), loginForm.getPassword());
-        UserUtils.setUser(session, u);
         return "redirect:/";
     }
 }

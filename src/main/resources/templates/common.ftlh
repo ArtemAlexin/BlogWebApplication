@@ -16,7 +16,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="\index"><span class="glyphicon glyphicon-globe"></span> Logo</a>
+                <a class="navbar-brand" href="/index"><span class="glyphicon glyphicon-globe"></span> Logo</a>
             </div>
             <!-- Navbar links -->
             <div class="collapse navbar-collapse" id="navbar">
@@ -471,7 +471,7 @@
     <!-- Form -->
     <@formHeader>Log in</@formHeader>
     <div class="panel-body">
-        <form action="/login" method="post">
+        <form action="/enter" method="post">
             <div class="form-group">
                 Login or email: <input type="text" class="form-control" id="uid" name="loginOrEmail"${loginForm!}>
             </div>
