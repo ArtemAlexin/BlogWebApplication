@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class AboutController extends AbstractController {
     @GetMapping("/about")
     public String getAboutPage() {
-        return "aboutController";
+        return "aboutPage";
     }
 
 }

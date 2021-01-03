@@ -11,19 +11,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import ru.myproject.first_project.domain.DTO.ResetPasswordDTO;
 import ru.myproject.first_project.domain.DTO.ResetPasswordTokenDTO;
 import ru.myproject.first_project.domain.ResetPasswordToken;
-import ru.myproject.first_project.service.ResetUserTokenServiceInterface;
-import ru.myproject.first_project.service.UserServiceInterface;
+import ru.myproject.first_project.service.ResetUserTokenService;
+import ru.myproject.first_project.service.UserService;
 
 import javax.validation.Valid;
 import java.util.stream.Collectors;
 
 @Controller
 public class ResetPasswordController {
-    private final ResetUserTokenServiceInterface resetUserTokenService;
-    private final UserServiceInterface userService;
+    private final ResetUserTokenService resetUserTokenService;
+    private final UserService userService;
 
     @Autowired
-    public ResetPasswordController(ResetUserTokenServiceInterface resetUserTokenService, UserServiceInterface userService) {
+    public ResetPasswordController(ResetUserTokenService resetUserTokenService, UserService userService) {
         this.resetUserTokenService = resetUserTokenService;
         this.userService = userService;
     }

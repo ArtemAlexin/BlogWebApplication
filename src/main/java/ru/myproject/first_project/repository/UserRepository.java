@@ -10,14 +10,13 @@ import javax.transaction.Transactional;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    User findByLoginAndPasswordSha(String login, String password);
+    User findByLoginAndPassword(String login, String password);
     User findByEmail(String email);
     User findByLogin(String login);
-    User findByEmailAndPasswordSha(String email, String password);
     @Modifying
     @Query("UPDATE User u set u.isVerified=true where u.id = :id")
     void setEnabled(long id);
     @Modifying
-    @Query("UPDATE User u set u.passwordSha = :passwordSha where u.id = :id")
-    void updatePasswordSha(long id, String passwordSha);
+    @Query("UPDATE User u set u.password = :password where u.id = :id")
+    void updatePassword(long id, String password);
 }

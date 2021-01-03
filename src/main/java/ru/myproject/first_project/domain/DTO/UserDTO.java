@@ -1,22 +1,22 @@
-package ru.myproject.first_project.domain;
+package ru.myproject.first_project.domain.DTO;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-public class UserCredentials {
+public class UserDTO {
     @Size(max = 30)
     @NotEmpty
-    private String loginOrEmail;
+    private String username;
     @Size(min = 8, max = 20)
     @NotEmpty
     private String password;
 
-    public String getLoginOrEmail() {
-        return loginOrEmail;
+    public String getUsername() {
+        return username;
     }
 
-    public void setLoginOrEmail(String loginOrEmail) {
-        this.loginOrEmail = loginOrEmail;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {

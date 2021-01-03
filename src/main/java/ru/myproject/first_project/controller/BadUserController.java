@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class BadUserController extends AbstractController {
     @GetMapping("/badUser")
     public String getBadUserPage() {
-        return "invalidToken";
+        return "error/invalidToken";
     }
 }

@@ -3,16 +3,16 @@ package ru.myproject.first_project.validators.DTOValidators;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.myproject.first_project.domain.VerificationToken;
-import ru.myproject.first_project.service.VerificationTokenServiceInterface;
+import ru.myproject.first_project.service.VerificationTokenService;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.Objects;
 @Component
 public class ValidatorVerificationToken implements ConstraintValidator<ValidVerificationToken, String> {
-   private final VerificationTokenServiceInterface verificationToken;
+   private final VerificationTokenService verificationToken;
    @Autowired
-   public ValidatorVerificationToken(VerificationTokenServiceInterface verificationToken) {
+   public ValidatorVerificationToken(VerificationTokenService verificationToken) {
       this.verificationToken = verificationToken;
    }
 

@@ -11,20 +11,10 @@ import javax.servlet.http.HttpSession;
 public final class UserUtils {
     private UserUtils() {
 
-    };
+    }
     public static final String EMAIL_EXISTS_MESSAGE = "Email already exists";
     public static final String LOGIN_EXISTS_MESSAGE = "Login already exists";
-
-    public static User getUser(HttpSession session) {
-        return (User)session.getAttribute("user");
-    }
-    public static boolean hasUser(HttpSession session) {
-        return session.getAttribute("user") != null;
-    }
-    public static void setUser(HttpSession session, User user) {
-        session.setAttribute("user", user);
-    }
-    public static void unsetUser(HttpSession session) {
-        session.removeAttribute("user");
+    public static String generateOptCode() {
+        return String.valueOf((int)(Math.random() * 9000 + 1000));
     }
 }

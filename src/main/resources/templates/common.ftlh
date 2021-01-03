@@ -1,5 +1,5 @@
 <#-- @ftlvariable name="token" type="ru.myproject.first_project.domain.DTO.ResetPasswordTokenDTO" -->
-<#-- @ftlvariable name="loginForm" type="ru.myproject.first_project.domain.UserCredentials" -->
+<#-- @ftlvariable name="loginForm" type="ru.myproject.first_project.domain.DTO.UserDTO" -->
 <#-- @ftlvariable name="registerForm" type="ru.myproject.first_project.domain.User" -->
 <#-- @ftlvariable name="name" type="String" -->
 <#-- @ftlvariable name="user" type="ru.myproject.first_project.domain.User" -->
@@ -34,7 +34,7 @@
                     <#if user?has_content == false>
                         <ul class="nav navbar-nav">
                             <li>
-                                <a href="/enter">Sign in</a>
+                                <a href="/login">Sign in</a>
                             </li>
                             <li>
                                 <a href="register">Sign up</a>
@@ -97,32 +97,6 @@
                         <p><a class="btn btn-default" href="#">Complete</a></p>
                     </div>
                     <div class="col-sm-3 footer-blurb-item">
-
-                        <!-- Thumbnails -->
-                        <h3><span class="glyphicon glyphicon-camera"></span> Phosfluorescent</h3>
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <a href="#" class="thumbnail">
-                                    <img src="holder.js/110x80" alt="">
-                                </a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="#" class="thumbnail">
-                                    <img src="holder.js/110x80" alt="">
-                                </a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="#" class="thumbnail">
-                                    <img src="holder.js/110x80" alt="">
-                                </a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="#" class="thumbnail">
-                                    <img src="holder.js/110x80" alt="">
-                                </a>
-                            </div>
-                        </div>
-
                     </div>
 
                 </div>
@@ -260,40 +234,6 @@
         <!-- Carousel -->
         <h3><span class="glyphicon glyphicon-modal-window"></span> Synergization</h3>
         <div id="side-carousel" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#side-carousel" data-slide-to="0" class="active"></li>
-                <li data-target="#side-carousel" data-slide-to="1"></li>
-                <li data-target="#side-carousel" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                    <a href="#">
-                        <img class="img-responsive" src="holder.js/400x300?bg=FF8C00&text=Image%201" alt="">
-                    </a>
-                    <div class="carousel-caption">
-                        <h3>Dramatically Engage</h3>
-                        <p>Objectively innovate empowered manufactured products whereas parallel platforms.</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <a href="#">
-                        <img class="img-responsive" src="holder.js/400x300?bg=FF8C00&text=Image%202" alt="">
-                    </a>
-                    <div class="carousel-caption">
-                        <h3>Efficiently Unleash</h3>
-                        <p>Dramatically maintain clicks-and-mortar solutions without functional solutions.</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <a href="#">
-                        <img class="img-responsive" src="holder.js/400x300?bg=FF8C00&text=Image%203" alt="">
-                    </a>
-                    <div class="carousel-caption">
-                        <h3>Proactively Pontificate</h3>
-                        <p>Holistically pontificate installed base portals after maintainable products.</p>
-                    </div>
-                </div>
-            </div>
             <a class="left carousel-control" href="#side-carousel" role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
@@ -471,11 +411,11 @@
     <!-- Form -->
     <@formHeader>Log in</@formHeader>
     <div class="panel-body">
-        <form action="/enter" method="post">
+        <form action="/login" method="post">
             <div class="form-group">
-                Login or email: <input type="text" class="form-control" id="uid" name="loginOrEmail"${loginForm!}>
+                Login or email: <input type="text" class="form-control" name="username"${loginForm!}>
             </div>
-            <div class="form-group">Password:<input type="password" class="form-control" id="pwd" name="password">
+            <div class="form-group">Password:<input type="password" class="form-control" name="password">
             </div>
             <@error 'loginForm.password'/>
             <button type="submit" class="btn btn-default">Log In</button>

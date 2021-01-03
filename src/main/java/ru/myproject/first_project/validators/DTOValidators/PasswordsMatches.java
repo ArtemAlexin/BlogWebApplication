@@ -1,4 +1,4 @@
-package ru.myproject.first_project.validators.register;
+package ru.myproject.first_project.validators.DTOValidators;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
